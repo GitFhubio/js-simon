@@ -26,15 +26,23 @@ if (arr.indexOf(RandomNumber)==-1){
 console.log(arr);
 alert('Questi sono i numeri che devi memorizzare: '+arr);
 
-  var countdown = 30;
-  var clock = setInterval(function() {
-      if(countdown > 0) {
-          $('#numero').text(countdown);
-          countdown--;
-      } else {
-          clearInterval(clock);
-      }
-  }, 1000);
+var countdown = 29;
+var clock = setInterval(function() {
+    switch(countdown){
+  case 0:
+  $('#numero').text(' ');
+  clearInterval(clock);
+  break;
+  case 1:
+  $('#numero').text('Manca '+countdown+' secondo');
+  break;
+  default:
+  $('#numero').text('Mancano '+countdown+' secondi');
+
+  }
+    countdown--;
+}
+, 1000);
 
 setTimeout(function(){
 
@@ -73,7 +81,9 @@ default:
 alert('Hai indovinato '+scelteGiuste.length+' numeri: '+[scelteGiuste]);
 }
   ; },
-30000);
+30200);
 
 }
 )
+
+// Nota:ho messo 29 e 30200 per considerare il delay naturale del prompt
