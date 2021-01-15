@@ -13,6 +13,7 @@ function isValid(num) {
 }
 
 $(document).ready(function(){
+
 var arr=[];
 var RandomNumber;
 while (arr.length<5) {
@@ -25,6 +26,15 @@ if (arr.indexOf(RandomNumber)==-1){
 console.log(arr);
 alert('Questi sono i numeri che devi memorizzare: '+arr);
 
+  var countdown = 30;
+  var clock = setInterval(function() {
+      if(countdown > 0) {
+          $('#numero').text(countdown);
+          countdown--;
+      } else {
+          clearInterval(clock);
+      }
+  }, 1000);
 
 setTimeout(function(){
 
@@ -63,7 +73,7 @@ default:
 alert('Hai indovinato '+scelteGiuste.length+' numeri: '+[scelteGiuste]);
 }
   ; },
- 30000);
+30000);
 
 }
 )
