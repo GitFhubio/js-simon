@@ -30,16 +30,16 @@ var countdown = 29;
 var clock = setInterval(function() {
     switch(countdown){
   case 0:
-  $('#numero').text(' ');
+  messaggio=' ';
   clearInterval(clock);
   break;
   case 1:
-  $('#numero').text('Manca '+countdown+' secondo');
+  messaggio='Manca '+countdown+' secondo';
   break;
   default:
-  $('#numero').text('Mancano '+countdown+' secondi');
-
+  messaggio='Mancano '+countdown+' secondi';
   }
+    $("#numero").text(messaggio);
     countdown--;
 }
 , 1000);
@@ -47,20 +47,18 @@ var clock = setInterval(function() {
 setTimeout(function(){
 
 var arrScelte=[];
-var SceltaUtente;
-var c=0;
+var sceltaUtente;
 while (arrScelte.length<5 ) {
 
-SceltaUtente=parseInt(prompt('Inserisci il '+(c+1)+'°'+' numero'));
-if(arrScelte.indexOf(SceltaUtente)!=-1)
+sceltaUtente=parseInt(prompt('Inserisci il '+(arrScelte.length+1)+'°'+' numero'));
+if(arrScelte.indexOf(sceltaUtente)!=-1)
 {alert('Hai già inserito questo numero');
 }
-else if(!isValid(SceltaUtente))
+else if(!isValid(sceltaUtente))
 {alert('Erano numeri da 1 a 100,non te lo conto manco errore');
 }
 else{
-  arrScelte.push(SceltaUtente);
- c++;
+  arrScelte.push(sceltaUtente);
 }
 }
 var scelteGiuste=[];
@@ -70,6 +68,7 @@ if(arr.indexOf(arrScelte[i])!=-1)
   scelteGiuste.push(arrScelte[i]);
 }
 }
+
 switch(scelteGiuste.length){
 case 0:
 alert('Non hai indovinato manco un numero,hai problemi di memoria grossi');
@@ -80,8 +79,9 @@ break;
 default:
 alert('Hai indovinato '+scelteGiuste.length+' numeri: '+[scelteGiuste]);
 }
+
   ; },
-30200);
+30500);
 
 }
 )
